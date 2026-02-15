@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>القرآن الكريم - صانع الفيديوهات القرآنية</title>
+<meta name="description" content="القرآن الكريم - صانع فيديوهات قرآنية احترافية لجميع منصات التواصل الاجتماعي">
+<meta name="author" content="ali.ibrahim2150@gmail.com">
+<meta name="robots" content="index, follow">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="Referrer-Policy" content="no-referrer">
+<meta http-equiv="Permissions-Policy" content="camera=self, microphone=self, geolocation=()">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+(function(){
+"use strict";
+})();
+:root{
+--p1:#1B4332;--p2:#2D6A4F;--p3:#40916C;--p4:#52B788;--p5:#74C69D;--p6:#95D5B2;
+--g1:#8B6914;--g2:#B8860B;--g3:#DAA520;--g4:#F0C850;--g5:rgba(218,165,32,.1);
+--bg:#FEFCF7;--bg2:#FFF9EE;--bg3:#FFF5E1;--bg4:#FFF;
+--tx:#1A1A2E;--tx2:#4A4A5A;--tx3:#7A7A8A;--tx4:#AAA;
+--bd:#E8DCC8;--bd2:#D4C8B0;
+--sh:0 4px 24px rgba(27,67,50,.08);--sh2:0 8px 32px rgba(27,67,50,.12);
+--rd:16px;--rd2:10px;--rd3:8px;
+--fq:'Amiri Quran','Amiri',serif;--fa:'Amiri',serif;--fu:'Cairo',sans-serif;
+--qs:30px;
+--hh:60px;
+}
+[data-t=dark]{
+--p1:#95D5B2;--p2:#74C69D;--p3:#52B788;--p4:#40916C;--p5:#2D6A4F;--p6:#1B4332;
+--g1:#F0C850;--g2:#DAA520;--g3:#B8860B;--g4:#8B6914;--g5:rgba(240,200,80,.08);
+--bg:#0A0F1A;--bg2:#111827;--bg3:#1A2332;--bg4:#1E293B;
+--tx:#E8E8F0;--tx2:#B0B0C0;--tx3:#707088;--tx4:#505068;
+--bd:#2A3648;--bd2:#354258;
+--sh:0 4px 24px rgba(0,0,0,.3);--sh2:0 8px 32px rgba(0,0,0,.4);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--fu);background:var(--bg);color:var(--tx);overflow-x:hidden;line-height:1.7;transition:.3s}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--g2);border-radius:3px}
+button,select,input,textarea{font-family:var(--fu);outline:none}
+a{text-decoration:none;color:inherit}
+img,video,canvas{max-width:100%;display:block}
+
+/* ═══ HEADER ═══ */
+.hdr{position:sticky;top:0;z-index:1000;height:var(--hh);background:linear-gradient(135deg,var(--p1),var(--p2));display:flex;align-items:center;justify-content:space-between;padding:0 20px;box-shadow:0 4px 30px rgba(0,0,0,.2)}
+.hdr *{color:#fff}
+.h-brand{display:flex;align-items:center;gap:12px}
+.h-icon{width:40px;height:40px;flex-shrink:0}
+.h-icon svg{width:100%;height:100%;fill:var(--g3)}
+.h-title{font-size:17px;font-weight:700}
+.h-sub{font-size:10px;opacity:.7;margin-top:-2px}
+.h-actions{display:flex;gap:6px;align-items:center}
+.h-btn{width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:17px;cursor:pointer;transition:.2s}
+.h-btn:hover{background:rgba(255,255,255,.25);transform:scale(1.05)}
+
+/* ═══ NAV TABS ═══ */
+.nav-tabs{display:flex;background:var(--bg3);border-bottom:1px solid var(--bd);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.nav-tab{padding:12px 20px;border:none;background:none;font-size:13px;font-weight:600;color:var(--tx3);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;transition:.2s;position:relative}
+.nav-tab:hover{color:var(--tx);background:var(--g5)}
+.nav-tab.act{color:var(--p1);border-bottom-color:var(--g2);background:var(--bg4)}
+.nav-tab .badge{position:absolute;top:6px;left:6px;background:var(--g2);color:#fff;font-size:9px;padding:1px 5px;border-radius:8px}
+
+/* ═══ SECTIONS ═══ */
+.section{display:none;min-height:calc(100vh - var(--hh) - 48px);padding:20px;max-width:1400px;margin:0 auto}
+.section.act{display:block}
+
+/* ═══ CARDS ═══ */
+.card{background:var(--bg4);border:1px solid var(--bd);border-radius:var(--rd);padding:20px;box-shadow:var(--sh);margin-bottom:16px;transition:.2s}
+.card:hover{box-shadow:var(--sh2)}
+.card-h{font-size:16px;font-weight:700;color:var(--p1);margin-bottom:12px;display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--bd)}
+.card-h .icon{font-size:20px}
+
+/* ═══ FORM ELEMENTS ═══ */
+.form-group{margin-bottom:14px}
+.form-label{display:block;font-size:12px;font-weight:600;color:var(--tx2);margin-bottom:5px}
+.form-select,.form-input{width:100%;padding:10px 14px;border:2px solid var(--bd);border-radius:var(--rd3);background:var(--bg2);color:var(--tx);font-size:13px;transition:.2s;-webkit-appearance:none}
+.form-select:focus,.form-input:focus{border-color:var(--g2);box-shadow:0 0 0 3px var(--g5)}
+.form-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.form-row-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.form-row-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+
+/* ═══ BUTTONS ═══ */
+.btn{padding:10px 20px;border:none;border-radius:var(--rd3);font-size:13px;font-weight:600;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn-primary{background:linear-gradient(135deg,var(--p1),var(--p2));color:#fff;box-shadow:0 4px 15px rgba(27,67,50,.3)}
+.btn-primary:hover{box-shadow:0 6px 20px rgba(27,67,50,.4)}
+.btn-gold{background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff;box-shadow:0 4px 15px rgba(184,134,11,.3)}
+.btn-outline{background:none;border:2px solid var(--bd);color:var(--tx2)}
+.btn-outline:hover{border-color:var(--p1);color:var(--p1)}
+.btn-danger{background:#DC3545;color:#fff}
+.btn-sm{padding:6px 12px;font-size:11px}
+.btn-lg{padding:14px 28px;font-size:15px}
+.btn-block{width:100%;justify-content:center}
+.btn-group{display:flex;gap:8px;flex-wrap:wrap}
+
+/* ═══ QURAN READER ═══ */
+.quran-split{display:grid;grid-template-columns:350px 1fr;gap:0;min-height:calc(100vh - var(--hh) - 48px)}
+.quran-sidebar{background:var(--bg3);border-left:1px solid var(--bd);overflow-y:auto;max-height:calc(100vh - var(--hh) - 48px);position:sticky;top:calc(var(--hh) + 48px)}
+.quran-main{overflow-y:auto;padding:24px}
+.quran-frame{border:2px solid var(--g2);border-radius:var(--rd);padding:4px;background:var(--bg4);max-width:780px;margin:0 auto}
+.quran-inner{border:1px solid var(--bd2);border-radius:calc(var(--rd) - 4px);padding:24px 20px}
+
+.surah-header{text-align:center;padding:16px 24px;background:linear-gradient(135deg,var(--p1),var(--p2));border-radius:var(--rd3);margin-bottom:16px;position:relative;overflow:hidden}
+.surah-header::before,.surah-header::after{content:'✦';position:absolute;top:50%;transform:translateY(-50%);color:var(--g3);font-size:20px;opacity:.4}
+.surah-header::before{right:20px}
+.surah-header::after{left:20px}
+.surah-name{font-family:var(--fq);font-size:32px;color:#fff}
+.surah-meta{font-size:11px;color:rgba(255,255,255,.7);display:flex;justify-content:center;gap:16px;margin-top:4px}
+
+.bismillah{text-align:center;font-family:var(--fq);font-size:26px;color:var(--p1);padding:12px;margin-bottom:14px}
+
+.ayah-container{line-height:3.2;text-align:justify;direction:rtl}
+.ayah-text{font-family:var(--fq);font-size:var(--qs);cursor:pointer;transition:.15s;padding:2px 4px;border-radius:4px}
+.ayah-text:hover{color:var(--p2)}
+.ayah-text.playing{background:var(--g5);color:var(--p1)}
+.ayah-num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;font-size:12px;font-weight:700;color:var(--g2);margin:0 3px;vertical-align:middle;cursor:pointer;position:relative;font-family:var(--fu);transition:.2s}
+.ayah-num::before{content:'';position:absolute;width:100%;height:100%;border:2px solid var(--g2);border-radius:50%;transform:rotate(45deg)}
+.ayah-num:hover{color:var(--p1)}
+.ayah-num:hover::before{border-color:var(--p1)}
+
+/* Sidebar controls */
+.sb-ctrl{padding:12px;border-bottom:1px solid var(--bd);background:var(--bg4)}
+.sb-ctrl .form-group{margin-bottom:8px}
+.sb-tabs{display:flex;border-bottom:1px solid var(--bd)}
+.sb-tab{flex:1;padding:8px;border:none;background:none;font-size:11px;font-weight:600;color:var(--tx3);cursor:pointer;border-bottom:2px solid transparent;transition:.2s}
+.sb-tab.act{color:var(--p1);border-bottom-color:var(--g2)}
+.sb-body{overflow-y:auto;flex:1}
+.sb-panel{display:none;padding:10px}
+.sb-panel.act{display:block}
+
+.trans-verse{padding:10px;border-bottom:1px solid var(--bd);cursor:pointer;transition:.15s;display:flex;gap:8px}
+.trans-verse:hover{background:var(--g5)}
+.trans-verse.hl{background:var(--g5);border-right:3px solid var(--g2)}
+.trans-num{min-width:26px;height:26px;display:flex;align-items:center;justify-content:center;background:var(--p1);color:#fff;border-radius:50%;font-size:10px;font-weight:700;flex-shrink:0;margin-top:3px}
+.trans-text{font-size:13px;color:var(--tx2);line-height:1.8}
+
+/* Surah list */
+.surah-item{display:flex;align-items:center;gap:8px;padding:8px 10px;cursor:pointer;transition:.15s;border-bottom:1px solid var(--bd)}
+.surah-item:hover{background:var(--g5)}
+.surah-item.act{background:var(--p1);color:#fff;border-radius:var(--rd3)}
+.s-num{width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;border:1.5px solid var(--g2);border-radius:50%;transform:rotate(45deg);flex-shrink:0;color:var(--g2)}
+.s-num span{transform:rotate(-45deg)}
+.surah-item.act .s-num{border-color:rgba(255,255,255,.4);color:#fff}
+.s-name{font-size:13px;font-weight:600}
+.s-info{font-size:10px;color:var(--tx3)}
+.surah-item.act .s-info{color:rgba(255,255,255,.6)}
+
+/* Search */
+.search-box{position:relative;margin-bottom:8px}
+.search-input{width:100%;padding:9px 36px 9px 12px;border:2px solid var(--bd);border-radius:var(--rd3);background:var(--bg2);color:var(--tx);font-size:13px}
+.search-input:focus{border-color:var(--g2)}
+.search-icon{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--tx3)}
+
+/* ═══ VIDEO MAKER ═══ */
+.vm-layout{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.preview-container{position:relative;background:#000;border-radius:var(--rd);overflow:hidden;aspect-ratio:9/16;max-height:70vh;margin:0 auto}
+.preview-container.landscape{aspect-ratio:16/9}
+.preview-container.square{aspect-ratio:1/1}
+.preview-canvas{width:100%;height:100%;object-fit:contain}
+.preview-overlay{position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;text-align:center}
+.preview-ayah{font-family:var(--fq);font-size:24px;line-height:2;text-shadow:2px 2px 8px rgba(0,0,0,.8)}
+.preview-ref{font-size:12px;opacity:.7;margin-top:6px}
+
+/* Platform specs */
+.platform-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.platform-card{padding:12px;border:2px solid var(--bd);border-radius:var(--rd3);text-align:center;cursor:pointer;transition:.2s;background:var(--bg2)}
+.platform-card:hover{border-color:var(--g2);background:var(--g5)}
+.platform-card.sel{border-color:var(--p1);background:var(--g5);box-shadow:0 0 0 2px var(--p1)}
+.platform-card .p-icon{font-size:28px;margin-bottom:4px}
+.platform-card .p-name{font-size:12px;font-weight:600}
+.platform-card .p-spec{font-size:9px;color:var(--tx3)}
+
+/* Export options */
+.export-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.export-card{padding:12px;border:2px solid var(--bd);border-radius:var(--rd3);cursor:pointer;transition:.2s;background:var(--bg2)}
+.export-card:hover{border-color:var(--g2)}
+.export-card.sel{border-color:var(--p1);background:var(--g5)}
+.export-card input[type=checkbox]{margin-left:8px;accent-color:var(--p1)}
+.export-title{font-size:13px;font-weight:600}
+.export-desc{font-size:10px;color:var(--tx3)}
+
+/* ═══ AI IMAGE GEN ═══ */
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.ai-img{border-radius:var(--rd3);overflow:hidden;position:relative;aspect-ratio:1;background:var(--bg3);border:1px solid var(--bd)}
+.ai-img img{width:100%;height:100%;object-fit:cover}
+.ai-img .ai-dl{position:absolute;bottom:6px;right:6px;background:rgba(0,0,0,.6);color:#fff;border:none;padding:4px 10px;border-radius:4px;font-size:11px;cursor:pointer}
+
+/* ═══ VIDEO EDITOR ═══ */
+.editor-timeline{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--rd3);padding:12px;margin-top:12px}
+.timeline-track{height:50px;background:var(--bg4);border-radius:6px;margin-bottom:8px;display:flex;align-items:center;padding:0 12px;border:1px solid var(--bd);gap:8px}
+.track-label{font-size:11px;font-weight:600;min-width:60px;color:var(--tx2)}
+.track-wave{flex:1;height:30px;background:linear-gradient(90deg,var(--p4),var(--g3),var(--p4));border-radius:4px;opacity:.3}
+
+/* ═══ RECITERS GRID ═══ */
+.reciters-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.reciter-card{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--bd);border-radius:var(--rd3);cursor:pointer;transition:.2s;background:var(--bg2)}
+.reciter-card:hover{border-color:var(--g2);background:var(--g5)}
+.reciter-card.sel{border-color:var(--p1);background:var(--g5)}
+.reciter-avatar{width:40px;height:40px;border-radius:50%;background:var(--p1);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.reciter-name{font-size:13px;font-weight:600}
+.reciter-style{font-size:10px;color:var(--tx3)}
+
+/* ═══ AUDIO PLAYER BAR ═══ */
+.player-bar{position:fixed;bottom:0;left:0;right:0;background:var(--bg4);border-top:1px solid var(--bd);padding:10px 20px;display:flex;align-items:center;gap:12px;z-index:900;box-shadow:0 -4px 20px rgba(0,0,0,.06)}
+.pl-info{min-width:0;max-width:180px;flex-shrink:0}
+.pl-sname{font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pl-anum{font-size:10px;color:var(--tx3)}
+.pl-controls{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.pl-btn{width:36px;height:36px;border-radius:50%;border:none;background:none;color:var(--tx);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+.pl-btn:hover{background:var(--g5)}
+.pl-btn.main-btn{width:42px;height:42px;background:var(--p1);color:#fff;font-size:18px}
+.pl-btn.main-btn:hover{background:var(--p2)}
+.pl-progress{flex:1;display:flex;align-items:center;gap:6px;min-width:0}
+.progress-bar{flex:1;height:5px;background:var(--bd);border-radius:3px;cursor:pointer;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--g2),var(--g3));width:0%;border-radius:3px;transition:width .1s}
+.progress-time{font-size:10px;color:var(--tx3);min-width:35px;text-align:center;flex-shrink:0}
+
+/* ═══ MODAL ═══ */
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.show{display:flex}
+.modal{background:var(--bg4);border-radius:var(--rd);max-width:600px;width:100%;max-height:80vh;overflow-y:auto;padding:24px;box-shadow:var(--sh2)}
+.modal-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--bd)}
+.modal-title{font-size:18px;font-weight:700;color:var(--p1)}
+.modal-close{background:none;border:none;font-size:24px;color:var(--tx3);cursor:pointer}
+
+/* ═══ LOADING ═══ */
+.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px}
+.spinner{width:40px;height:40px;border:3px solid var(--bd);border-top-color:var(--g2);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading span{margin-top:12px;font-size:12px;color:var(--tx3)}
+
+/* ═══ TOAST ═══ */
+.toast{position:fixed;top:80px;left:50%;transform:translateX(-50%);background:var(--p1);color:#fff;padding:10px 24px;border-radius:var(--rd3);font-size:13px;z-index:3000;box-shadow:var(--sh2);opacity:0;transition:.3s;pointer-events:none}
+.toast.show{opacity:1}
+
+/* ═══ FOOTER ═══ */
+.app-footer{background:linear-gradient(135deg,var(--p1),#0a2920);color:rgba(255,255,255,.8);text-align:center;padding:24px 16px;font-size:11px;line-height:2.2}
+.app-footer hr{border:none;height:1px;background:rgba(255,255,255,.1);margin:10px auto;max-width:120px}
+.app-footer a{color:var(--g3)}
+.app-footer strong{color:#fff}
+
+/* ═══ PROGRESS BAR (Export) ═══ */
+.export-progress{margin-top:12px;display:none}
+.export-progress.show{display:block}
+.ep-bar{height:8px;background:var(--bd);border-radius:4px;overflow:hidden}
+.ep-fill{height:100%;background:linear-gradient(90deg,var(--p1),var(--g2));width:0%;border-radius:4px;transition:width .3s}
+.ep-text{font-size:11px;color:var(--tx3);text-align:center;margin-top:6px}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+.quran-split{grid-template-columns:1fr}
+.quran-sidebar{max-height:none;position:static;border-left:none;border-bottom:1px solid var(--bd)}
+.vm-layout{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+.nav-tab{padding:10px 14px;font-size:12px}
+.section{padding:12px}
+.form-row-3,.form-row-4{grid-template-columns:1fr 1fr}
+.player-bar{flex-wrap:wrap;padding:8px 12px;gap:6px}
+.pl-progress{order:-1;width:100%;flex-basis:100%}
+.pl-info{max-width:120px}
+:root{--qs:22px}
+.surah-name{font-size:24px}
+.preview-ayah{font-size:18px}
+}
+@media(max-width:480px){
+.form-row-3,.form-row-4,.form-row{grid-template-columns:1fr}
+.platform-grid{grid-template-columns:repeat(3,1fr)}
+:root{--qs:20px}
+.nav-tab{padding:8px 10px;font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="hdr">
+<div class="h-brand">
+<div class="h-icon">
+<svg viewBox="0 0 100 100"><path d="M50 8C50 8 26 3 6 17L6 83C26 73 50 77 50 77C50 77 74 73 94 83L94 17C74 3 50 8 50 8Z" opacity=".9"/><line x1="50" y1="12" x2="50" y2="77" stroke="#fff" stroke-width="1.5"/><circle cx="50" cy="30" r="6" fill="none" stroke="#fff" stroke-width="1"/><circle cx="50" cy="30" r="2" fill="#fff"/></svg>
+</div>
+<div>
+<div class="h-title">القرآن الكريم</div>
+<div class="h-sub">قرآن يتلى أطراف الليل وآناء النهار</div>
+</div>
+</div>
+<div class="h-actions">
+<button class="h-btn" onclick="toggleTheme()" title="الوضع الليلي">🌙</button>
+</div>
+</header>
+
+<!-- ═══ NAV TABS ═══ -->
+<nav class="nav-tabs" id="navTabs">
+<button class="nav-tab act" onclick="switchSection('quran',this)">📖 القرآن الكريم</button>
+<button class="nav-tab" onclick="switchSection('video',this)">🎬 صانع الفيديو</button>
+<button class="nav-tab" onclick="switchSection('ai',this)">🎨 توليد صور AI</button>
+<button class="nav-tab" onclick="switchSection('editor',this)">✂️ محرر الفيديو</button>
+<button class="nav-tab" onclick="switchSection('live',this)">📡 بث مباشر</button>
+<button class="nav-tab" onclick="switchSection('export',this)">📤 التصدير</button>
+<button class="nav-tab" onclick="switchSection('reciters',this)">🎙️ القراء</button>
+</nav>
+
+<!-- ══════════════════════════════════════ -->
+<!-- SECTION 1: QURAN READER -->
+<!-- ══════════════════════════════════════ -->
+<div class="section act" id="sec-quran">
+<div class="quran-split">
+<!-- Sidebar -->
+<aside class="quran-sidebar" id="qSidebar">
+<div class="sb-ctrl">
+<div class="form-group">
+<label class="form-label">📖 السورة</label>
+<select class="form-select" id="surahSelect" onchange="loadSurah(this.value)"></select>
+</div>
+<div class="form-group">
+<label class="form-label">🌐 الترجمة</label>
+<select class="form-select" id="transSelect" onchange="changeTranslation()"></select>
+</div>
+<div class="form-group">
+<label class="form-label">🎙️ القارئ</label>
+<select class="form-select" id="reciterSelect" onchange="changeReciter()"></select>
+</div>
+<div style="display:flex;gap:8px">
+<div class="form-group" style="flex:1">
+<label class="form-label">📑 الجزء</label>
+<select class="form-select" id="juzSelect" onchange="loadJuz(this.value)"><option value="">اختر</option></select>
+</div>
+<div class="form-group" style="flex:1">
+<label class="form-label">📄 الصفحة</label>
+<input type="number" class="form-input" id="pageInput" min="1" max="604" placeholder="1-604" onchange="loadPage(this.value)">
+</div>
+</div>
+</div>
+<div class="sb-tabs">
+<button class="sb-tab act" onclick="switchSbTab('trans',this)">🌐 ترجمة</button>
+<button class="sb-tab" onclick="switchSbTab('tafsir',this)">📖 تفسير</button>
+<button class="sb-tab" onclick="switchSbTab('search',this)">🔍 بحث</button>
+<button class="sb-tab" onclick="switchSbTab('index',this)">📋 فهرس</button>
+</div>
+<div class="sb-body">
+<div class="sb-panel act" id="sbp-trans"><div id="transContent"><p style="padding:20px;text-align:center;color:var(--tx3)">اختر سورة للبدء</p></div></div>
+<div class="sb-panel" id="sbp-tafsir"><div id="tafsirContent"><p style="padding:20px;text-align:center;color:var(--tx3)">اختر سورة لعرض التفسير</p></div></div>
+<div class="sb-panel" id="sbp-search">
+<div class="search-box"><span class="search-icon">🔍</span><input class="search-input" id="searchInput" placeholder="ابحث في القرآن..." onkeyup="doSearch()"></div>
+<div id="searchResults"></div>
+</div>
+<div class="sb-panel" id="sbp-index"><div id="surahIndex"></div></div>
+</div>
+</aside>
+
+<!-- Main Quran -->
+<main class="quran-main" id="qMain">
+<!-- Welcome -->
+<div id="welcomeScreen" style="text-align:center;padding:60px 20px">
+<div style="font-size:60px;margin-bottom:16px">📖</div>
+<h1 style="font-family:var(--fq);font-size:32px;color:var(--p1);margin-bottom:8px">القرآن الكريم</h1>
+<p style="color:var(--tx2);margin-bottom:24px">قرآن يتلى أطراف الليل وآناء النهار</p>
+<div style="font-family:var(--fq);font-size:22px;color:var(--p1);padding:20px;background:var(--g5);border:1px solid var(--g2);border-radius:var(--rd);max-width:520px;margin:0 auto;line-height:2.2">
+﴿ إِنَّ هَـٰذَا ٱلۡقُرۡءَانَ يَهۡدِي لِلَّتِي هِيَ أَقۡوَمُ ﴾
+</div>
+<p style="color:var(--tx3);font-size:13px;margin-top:10px">سورة الإسراء - الآية ٩</p>
+</div>
+<!-- Quran View -->
+<div id="quranView" style="display:none">
+<div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px">
+<button class="btn btn-sm btn-outline" onclick="chgFont(-2)">−</button>
+<span style="font-size:12px;color:var(--tx3)" id="fontLbl">30</span>
+<button class="btn btn-sm btn-outline" onclick="chgFont(2)">+</button>
+</div>
+<div class="quran-frame">
+<div class="quran-inner">
+<div class="surah-header" id="surahHeader"><div class="surah-name" id="surahName"></div><div class="surah-meta" id="surahMeta"></div></div>
+<div class="bismillah" id="bismillah">بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِيمِ</div>
+<div class="ayah-container" id="ayahContainer"></div>
+<div style="text-align:center;margin-top:14px;font-size:11px;color:var(--tx3);display:flex;justify-content:center;gap:16px" id="pageInfo"></div>
+</div>
+</div>
+<div style="display:flex;justify-content:space-between;margin-top:16px">
+<button class="btn btn-primary btn-sm" id="prevSurah" onclick="navSurah(-1)">→ السابقة</button>
+<button class="btn btn-primary btn-sm" id="nextSurah" onclick="navSurah(1)">التالية ←</button>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- SECTION 2: VIDEO MAKER -->
+<!-- ══════════════════════════════════════ -->
+<div class="section" id="sec-video">
+<div class="vm-layout">
+<!-- Preview -->
+<div>
+<div class="card">
+<div class="card-h"><span class="icon">👁️</span> معاينة الفيديو</div>
+<div class="preview-container" id="previewContainer">
+<canvas id="previewCanvas" class="preview-canvas"></canvas>
+<div class="preview-overlay">
+<div class="preview-ayah" id="previewAyah">﴿ بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِيمِ ﴾</div>
+<div class="preview-ref" id="previewRef">سورة الفاتحة - الآية ١</div>
+</div>
+</div>
+<div class="btn-group" style="margin-top:12px;justify-content:center">
+<button class="btn btn-primary" onclick="generateVideo()">🎬 إنشاء الفيديو</button>
+<button class="btn btn-gold" onclick="captureFrame()">📸 التقاط صورة</button>
+</div>
+</div>
+</div>
+
+<!-- Controls -->
+<div>
+<div class="card">
+<div class="card-h"><span class="icon">⚙️</span> إعدادات الفيديو</div>
+<div class="form-group">
+<label class="form-label">📖 السورة</label>
+<select class="form-select" id="vmSurah" onchange="vmLoadSurah()"></select>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label class="form-label">من آية</label>
+<input type="number" class="form-input" id="vmFromAyah" value="1" min="1">
+</div>
+<div class="form-group">
+<label class="form-label">إلى آية</label>
+<input type="number" class="form-input" id="vmToAyah" value="7" min="1">
+</div>
+</div>
+<div class="form-group">
+<label class="form-label">🎙️ القارئ</label>
+<select class="form-select" id="vmReciter"></select>
+</div>
+<div class="form-group">
+<label class="form-label">🔊 صوت إضافي من الجهاز</label>
+<input type="file" class="form-input" id="vmExtraAudio" accept="audio/*">
+</div>
+</div>
+
+<!-- Platform Selection -->
+<div class="card">
+<div class="card-h"><span class="icon">📱</span> اختر المنصة (يمكنك اختيار أكثر من واحدة)</div>
+<div class="platform-grid" id="platformGrid">
+<div class="platform-card sel" data-platform="youtube" onclick="togglePlatform(this)">
+<div class="p-icon">▶️</div>
+<div class="p-name">يوتيوب</div>
+<div class="p-spec">4K • 16:9 • H.264</div>
+</div>
+<div class="platform-card" data-platform="youtube-shorts" onclick="togglePlatform(this)">
+<div class="p-icon">📱</div>
+<div class="p-name">ريلز يوتيوب</div>
+<div class="p-spec">4K • 9:16 • H.264</div>
+</div>
+<div class="platform-card" data-platform="tiktok" onclick="togglePlatform(this)">
+<div class="p-icon">🎵</div>
+<div class="p-name">تيك توك</div>
+<div class="p-spec">1080×1920 • 9:16</div>
+</div>
+<div class="platform-card" data-platform="kwai" onclick="togglePlatform(this)">
+<div class="p-icon">🎬</div>
+<div class="p-name">كواي</div>
+<div class="p-spec">1080×1920 • 9:16</div>
+</div>
+<div class="platform-card" data-platform="instagram" onclick="togglePlatform(this)">
+<div class="p-icon">📷</div>
+<div class="p-name">انستجرام</div>
+<div class="p-spec">1080×1920 • 9:16</div>
+</div>
+<div class="platform-card" data-platform="snapchat" onclick="togglePlatform(this)">
+<div class="p-icon">👻</div>
+<div class="p-name">سناب شات</div>
+<div class="p-spec">1080×1920 • 9:16</div>
+</div>
+</div>
+</div>
+
+<!-- Video Style -->
+<div class="card">
+<div class="card-h"><span class="icon">🎨</span> تصميم الفيديو</div>
+<div class="form-row">
+<div class="form-group">
+<label class="form-label">خلفية</label>
+<select class="form-select" id="vmBg" onchange="updatePreview()">
+<option value="gradient-dark">تدرج داكن</option>
+<option value="gradient-green">تدرج أخضر</option>
+<option value="gradient-gold">تدرج ذهبي</option>
+<option value="gradient-blue">تدرج أزرق</option>
+<option value="gradient-purple">تدرج بنفسجي</option>
+<option value="solid-black">أسود</option>
+<option value="solid-dark">داكن</option>
+<option value="pattern-islamic">زخرفة إسلامية</option>
+<option value="custom-image">صورة مخصصة</option>
+<option value="ai-generated">صورة AI</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">لون النص</label>
+<input type="color" class="form-input" id="vmTextColor" value="#FFFFFF" onchange="updatePreview()" style="height:40px;padding:4px">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label class="form-label">حجم الخط</label>
+<input type="range" class="form-input" id="vmFontSize" min="16" max="60" value="28" oninput="updatePreview()" style="padding:4px">
+</div>
+<div class="form-group">
+<label class="form-label">تأثير ظهور النص</label>
+<select class="form-select" id="vmTextAnim" onchange="updatePreview()">
+<option value="fade">ظهور تدريجي</option>
+<option value="typewriter">طباعة</option>
+<option value="slide-up">انزلاق للأعلى</option>
+<option value="zoom">تكبير</option>
+<option value="glow">توهج</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label">صورة خلفية مخصصة</label>
+<input type="file" class="form-input" id="vmBgImage" accept="image/*" onchange="loadBgImage()">
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- SECTION 3: AI IMAGE GENERATOR -->
+<!-- ══════════════════════════════════════ -->
+<div class="section" id="sec-ai">
+<div class="card">
+<div class="card-h"><span class="icon">🎨</span> توليد صور بالذكاء الاصطناعي</div>
+<p style="font-size:13px;color:var(--tx2);margin-bottom:16px">أنشئ خلفيات جميلة للفيديوهات القرآنية باستخدام الذكاء الاصطناعي</p>
+<div class="form-row">
+<div class="form-group">
+<label class="form-label">نمط الصورة</label>
+<select class="form-select" id="aiStyle">
+<option value="islamic-art">زخرفة إسلامية</option>
+<option value="mosque">مسجد</option>
+<option value="nature">طبيعة</option>
+<option value="space">فضاء</option>
+<option value="calligraphy">خط عربي</option>
+<option value="geometric">هندسي</option>
+<option value="watercolor">ألوان مائية</option>
+<option value="abstract">تجريدي</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">الألوان</label>
+<select class="form-select" id="aiColors">
+<option value="green-gold">أخضر وذهبي</option>
+<option value="blue-white">أزرق وأبيض</option>
+<option value="dark">داكن</option>
+<option value="warm">دافئ</option>
+<option value="cool">بارد</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">نسبة العرض</label>
+<select class="form-select" id="aiRatio">
+<option value="9:16">9:16 عمودي</option>
+<option value="16:9">16:9 أفقي</option>
+<option value="1:1">1:1 مربع</option>
+<option value="4:5">4:5 انستجرام</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label">وصف إضافي (اختياري)</label>
+<input type="text" class="form-input" id="aiPrompt" placeholder="مثال: مسجد في الليل مع نجوم...">
+</div>
+<div class="form-row">
+<div class="form-group">
+<label class="form-label">عدد الصور</label>
+<select class="form-select" id="aiCount">
+<option value="1">1 صورة</option>
+<option value="2">2 صور</option>
+<option value="4" selected>4 صور</option>
+<option value="6">6 صور</option>
+<option value="8">8 صور</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">نوع الصور</label>
+<select class="form-select" id="aiType">
+<option value="static">صور ثابتة</option>
+<option value="animated">صور متحركة (GIF)</option>
+</select>
+</div>
+</div>
+<button class="btn btn-gold btn-lg btn-block" onclick="generateAI()">🎨 توليد الصور</button>
+</div>
+
+<div class="card" id="aiResults" style="display:none">
+<div class="card-h"><span class="icon">🖼️</span> الصور المُولّدة</div>
+<div class="ai-grid" id="aiGrid"></div>
+<div class="btn-group" style="margin-top:12px;justify-content:center">
+<button class="btn btn-primary" onclick="downloadAllAI()">📥 تحميل الكل</button>
+<button class="btn btn-outline" onclick="useAsBackground()">🎬 استخدام كخلفية فيديو</button>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- SECTION 4: VIDEO EDITOR -->
+<!-- ══════════════════════════════════════ -->
+<div class="section" id="sec-editor">
+<div class="card">
+<div class="card-h"><span class="icon">✂️</span> محرر الفيديو</div>
+<div class="form-row">
+<div class="form-group">
+<label class="form-label">📹 تحميل فيديو</label>
+<input type="file" class="form-input" id="editorVideoFile" accept="video/*" onchange="loadEditorVideo()">
+</div>
+<div class="form-group">
+<label class="form-label">🔊 إضافة صوت</label>
+<input type="file" class="form-input" id="editorAudioFile" accept="audio/*">
+</div>
+</div>
+<div style="background:#000;border-radius:var(--rd3);overflow:hidden;margin:12px 0;aspect-ratio:16/9">
+<video id="editorVideo" style="width:100%;height:100%" controls></video>
+</div>
+<div class="editor-timeline">
+<div class="timeline-track">
+<span class="track-label">🎥 فيديو</span>
+<div class="track-wave" style="background:linear-gradient(90deg,var(--p3),var(--p4),var(--p3))"></div>
+</div>
+<div class="timeline-track">
+<span class="track-label">🔊 صوت 1</span>
+<div class="track-wave" style="background:linear-gradient(90deg,var(--g2),var(--g3),var(--g2))"></div>
+</div>
+<div class="timeline-track">
+<span class="track-label">🔊 صوت 2</span>
+<div class="track-wave" style="background:linear-gradient(90deg,#6366f1,#8b5cf6,#6366f1);opacity:.2"></div>
+</div>
+</div>
+<div class="btn-group" style="margin-top:12px">
+<button class="btn btn-primary" onclick="mergeAudioVideo()">🔀 دمج الصوت مع الفيديو</button>
+<button class="btn btn-outline" onclick="removeAudio()">🔇 إزالة الصوت</button>
+<button class="btn btn-outline" onclick="trimVideo()">✂️ قص الفيديو</button>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- SECTION 5: LIVE STREAMING -->
+<!-- ══════════════════════════════════════ -->
+<div class="section" id="sec-live">
+<div class="card">
+<div class="card-h"><span class="icon">📡</span> بث مباشر / تسجيل</div>
+<div class="form-row">
+<div class="form-group">
+<label class="form-label">مصدر الفيديو</label>
+<select class="form-select" id="liveSource" onchange="changeLiveSource()">
+<option value="camera">📷 الكاميرا</option>
+<option value="screen">🖥️ شاشة الجهاز</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">الجودة</label>
+<select class="form-select" id="liveQuality">
+<option value="1080">1080p Full HD</option>
+<option value="720">720p HD</option>
+<option value="480">480p SD</option>
+<option value="2160">4K Ultra HD</option>
+</select>
+</div>
+</div>
+<div style="background:#000;border-radius:var(--rd3);overflow:hidden;margin:12px 0;aspect-ratio:16/9;position:relative">
+<video id="liveVideo" style="width:100%;height:100%" autoplay muted playsinline></video>
+<div id="liveIndicator" style="display:none;position:absolute;top:12px;right:12px;background:#DC3545;color:#fff;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;animation:blink 1s infinite">🔴 مباشر</div>
+</div>
+@keyframes blink{50%{opacity:.5}}
+<div class="btn-group" style="justify-content:center">
+<button class="btn btn-primary btn-lg" id="liveStartBtn" onclick="startLive()">📡 بدء البث / التسجيل</button>
+<button class="btn btn-danger btn-lg" id="liveStopBtn" onclick="stopLive()" style="display:none">⏹ إيقاف</button>
+<button class="btn btn-gold" onclick="takePhoto()">📸 التقاط صورة</button>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- SECTION 6: EXPORT -->
+<!-- ══════════════════════════════════════ -->
+<div class="section" id="sec-export">
+<div class="card">
+<div class="card-h"><span class="icon">📤</span> خيارات التصدير المتعدد</div>
+<p style="font-size:13px;color:var(--tx2);margin-bottom:16px">اختر جميع الصيغ والجودات التي تريد تصديرها في آن واحد</p>
+
+<div class="export-grid" id="exportGrid">
+<label class="export-card">
+<input type="checkbox" value="youtube-4k" checked> 
+<div class="export-title">▶️ يوتيوب 4K</div>
+<div class="export-desc">MP4 • H.264 • 3840×2160 • 16:9 • AAC-LC 48kHz</div>
+</label>
+<label class="export-card">
+<input type="checkbox" value="youtube-1080"> 
+<div class="export-title">▶️ يوتيوب 1080p</div>
+<div class="export-desc">MP4 • H.264 • 1920×1080 • 16:9 • AAC-LC</div>
+</label>
+<label class="export-card">
+<input type="checkbox" value="youtube-shorts"> 
+<div class="export-title">📱 يوتيوب شورتس 4K</div>
+<div class="export-desc">MP4 • H.264/H.265 • 2160×3840 • 9:16 • AAC-LC 48kHz</div>
+</label>
+<label class="export-card">
+<input type="checkbox" value="tiktok"> 
+<div class="export-title">🎵 تيك توك</div>
+<div class="export-desc">MP4 • H.264 • 1080×1920 • 9:16 • AAC 128-384kbps</div>
+</label>
+<label class="export-card">
+<input type="checkbox" value="kwai"> 
+<div class="export-title">🎬 كواي</div>
+<div class="export-desc">MP4 • H.264 • 1080×1920 • 9:16 • AAC</div>
+</label>
+<label class="export-card">
+<input type="checkbox" value="instagram-reels"> 
+<div class="export-title">📷 انستجرام ريلز</div>
+<div class="export-desc">MP4 • H.264 • 1080×1920 • 9:16 • AAC 128-384kbps</div>
+</label>
+<label class="export-card">
+<input type="checkbox" value="instagram-post"> 
+<div class="export-title">📷 انستجرام بوست</div>
+<div class="export-desc">MP4 • H.264 • 1080×1080 • 1:1 • AAC</div>
+</label>
+<label class="export-card">
+<input type="checkbox" value="instagram-story"> 
+<div class="export-title">📷 انستجرام ستوري</div>
+<div class="export-desc">MP4 • H.264 • 1080×1920 • 9:16 • AAC</div>
+</label>
+<label class="export-card">
+<input type="checkbox" value="snapchat"> 
+<div class="export-title">👻 سناب شات</div>
+<div class="export-desc">MP4 • H.264 • 1080×1920 • 9:16 • AAC</div>
+</label>
+<label class="export-card">
+<input type="checkbox" value="facebook"> 
+<div class="export-title">📘 فيسبوك</div>
+<div class="export-desc">MP4 • H.264 • 1920×1080 • 16:9 • AAC</div>
+</label>
+<label class="export-card">
+<input type="checkbox" value="twitter"> 
+<div class="export-title">🐦 تويتر/X</div>
+<div class="export-desc">MP4 • H.264 • 1920×1080 • 16:9 • AAC</div>
+</label>
+</div>
+
+<div class="btn-group" style="margin-top:16px;justify-content:center">
+<button class="btn btn-primary btn-lg" onclick="exportAll()">📤 تصدير جميع المحدد</button>
+<button class="btn btn-gold btn-lg" onclick="exportSelected()">📤 تصدير واحد فقط</button>
+<button class="btn btn-outline" onclick="selectAllExports()">☑️ تحديد الكل</button>
+<button class="btn btn-outline" onclick="deselectAllExports()">⬜ إلغاء الكل</button>
+</div>
+
+<div class="export-progress" id="exportProgress">
+<div class="ep-bar"><div class="ep-fill" id="epFill"></div></div>
+<div class="ep-text" id="epText">جارٍ التصدير...</div>
+</div>
+</div>
+
+<!-- Export Specs Table -->
+<div class="card">
+<div class="card-h"><span class="icon">📊</span> المواصفات الفنية للمنصات</div>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:12px">
+<thead>
+<tr style="background:var(--p1);color:#fff">
+<th style="padding:10px;text-align:right;border-radius:8px 0 0 0">المنصة</th>
+<th style="padding:10px;text-align:center">الصيغة</th>
+<th style="padding:10px;text-align:center">الترميز</th>
+<th style="padding:10px;text-align:center">الدقة</th>
+<th style="padding:10px;text-align:center">الصوت</th>
+<th style="padding:10px;text-align:center;border-radius:0 8px 0 0">النسبة</th>
+</tr>
+</thead>
+<tbody id="specsTable">
+<tr style="background:var(--bg2)"><td style="padding:8px">▶️ يوتيوب</td><td style="text-align:center">MP4/MOV</td><td style="text-align:center">H.264/H.265</td><td style="text-align:center">4K (3840×2160)</td><td style="text-align:center">AAC-LC 48kHz</td><td style="text-align:center">16:9</td></tr>
+<tr><td style="padding:8px">📱 ريلز يوتيوب</td><td style="text-align:center">MP4/MOV</td><td style="text-align:center">H.264/H.265</td><td style="text-align:center">4K (2160×3840)</td><td style="text-align:center">AAC-LC 48kHz</td><td style="text-align:center">9:16</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:8px">🎵 تيك توك</td><td style="text-align:center">MP4/MOV</td><td style="text-align:center">H.264</td><td style="text-align:center">1080×1920</td><td style="text-align:center">AAC 128-384kbps</td><td style="text-align:center">9:16</td></tr>
+<tr><td style="padding:8px">🎬 كواي</td><td style="text-align:center">MP4</td><td style="text-align:center">H.264</td><td style="text-align:center">1080×1920</td><td style="text-align:center">AAC</td><td style="text-align:center">9:16</td></tr>
+<tr style="background:var(--bg2)"><td style="padding:8px">📷 انستجرام</td><td style="text-align:center">MP4/MOV</td><td style="text-align:center">H.264</td><td style="text-align:center">1080×1920</td><td style="text-align:center">AAC 128-384kbps</td><td style="text-align:center">9:16, 1:1, 4:5</td></tr>
+<tr><td style="padding:8px">👻 سناب</td><td style="text-align:center">MP4/MOV</td><td style="text-align:center">H.264</td><td style="text-align:center">1080×1920</td><td style="text-align:center">AAC</td><td style="text-align:center">9:16</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- SECTION 7: RECITERS -->
+<!-- ══════════════════════════════════════ -->
+<div class="section" id="sec-reciters">
+<div class="card">
+<div class="card-h"><span class="icon">🎙️</span> القراء والمقرئين</div>
+<div class="search-box" style="margin-bottom:16px">
+<span class="search-icon">🔍</span>
+<input class="search-input" id="reciterSearch" placeholder="ابحث عن قارئ..." oninput="filterReciters()">
+</div>
+<div class="reciters-grid" id="recitersGrid"></div>
+</div>
+</div>
+
+<!-- ═══ AUDIO PLAYER BAR ═══ -->
+<div class="player-bar" id="playerBar">
+<div class="pl-info"><div class="pl-sname" id="plSurahName">القرآن الكريم</div><div class="pl-anum" id="plAyahNum">—</div></div>
+<div class="pl-controls">
+<button class="pl-btn" onclick="prevAyahAudio()">⏮</button>
+<button class="pl-btn main-btn" id="playPauseBtn" onclick="togglePlayPause()">▶</button>
+<button class="pl-btn" onclick="nextAyahAudio()">⏭</button>
+<button class="pl-btn" id="repeatBtn" onclick="toggleRepeat()" style="font-size:13px">🔁</button>
+</div>
+<div class="pl-progress">
+<span class="progress-time" id="currentTime">0:00</span>
+<div class="progress-bar" onclick="seekAudio(event)"><div class="progress-fill" id="progressFill"></div></div>
+<span class="progress-time" id="durationTime">0:00</span>
+</div>
+</div>
+
+<!-- ═══ TOAST ═══ -->
+<div class="toast" id="toast"></div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="app-footer">
+<hr>
+<p><strong>القرآن الكريم - قرآن يتلى أطراف الليل وآناء النهار</strong></p>
+<hr>
+<p>النص القرآني: AlQuran Cloud API (مفتوح المصدر - رخصة MIT)</p>
+<p>التلاوات: EveryAyah.com (متاحة للاستخدام المجاني)</p>
+<p>تفسير الجلالين: ملك عام (القرن التاسع الهجري)</p>
+<p>الخطوط: Amiri و Cairo (رخصة SIL المفتوحة)</p>
+<hr>
+<p>⚠️ هذا الموقع <strong>غير تابع لأي جهة رسمية</strong></p>
+<p>📧 <a href="mailto:ali.ibrahim2150@gmail.com">ali.ibrahim2150@gmail.com</a></p>
+<p>جميع حقوق التصميم والبرمجة محفوظة © <span id="yearFooter"></span></p>
+<p>المحتوى القرآني والتفسيري من مصادر ملك عام ومفتوحة المصدر</p>
+</footer>
+
+<!-- ══════════════════════════════════════ -->
+<!-- JAVASCRIPT -->
+<!-- ══════════════════════════════════════ -->
+<script>
+;(function(){"use strict";
+
+// ═══ PROTECTION ═══
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('selectstart',e=>{if(!e.target.closest('input,textarea'))e.preventDefault()});
+document.addEventListener('copy',e=>{if(!e.target.closest('input,textarea'))e.preventDefault()});
+document.addEventListener('cut',e=>e.preventDefault());
+document.addEventListener('dragstart',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{
+if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&['I','J','C'].includes(e.key))||
+(e.ctrlKey&&['U','S'].includes(e.key)))e.preventDefault();
+});
+try{Object.defineProperty(document,'owner',{value:'ali.ibrahim2150@gmail.com',writable:false,configurable:false})}catch(e){}
+console.log('%c⚠️ تحذير أمني','color:red;font-size:24px;font-weight:bold');
+console.log('%cهذا الموقع محمي. جميع الحقوق محفوظة لـ ali.ibrahim2150@gmail.com','color:#1B4332;font-size:14px');
+
+// ═══ DATA ═══
+const SURAHS=[
+{n:1,a:"الفاتحة",c:7,t:"مكية"},{n:2,a:"البقرة",c:286,t:"مدنية"},{n:3,a:"آل عمران",c:200,t:"مدنية"},
+{n:4,a:"النساء",c:176,t:"مدنية"},{n:5,a:"المائدة",c:120,t:"مدنية"},{n:6,a:"الأنعام",c:165,t:"مكية"},
+{n:7,a:"الأعراف",c:206,t:"مكية"},{n:8,a:"الأنفال",c:75,t:"مدنية"},{n:9,a:"التوبة",c:129,t:"مدنية"},
+{n:10,a:"يونس",c:109,t:"مكية"},{n:11,a:"هود",c:123,t:"مكية"},{n:12,a:"يوسف",c:111,t:"مكية"},
+{n:13,a:"الرعد",c:43,t:"مدنية"},{n:14,a:"إبراهيم",c:52,t:"مكية"},{n:15,a:"الحجر",c:99,t:"مكية"},
+{n:16,a:"النحل",c:128,t:"مكية"},{n:17,a:"الإسراء",c:111,t:"مكية"},{n:18,a:"الكهف",c:110,t:"مكية"},
+{n:19,a:"مريم",c:98,t:"مكية"},{n:20,a:"طه",c:135,t:"مكية"},{n:21,a:"الأنبياء",c:112,t:"مكية"},
+{n:22,a:"الحج",c:78,t:"مدنية"},{n:23,a:"المؤمنون",c:118,t:"مكية"},{n:24,a:"النور",c:64,t:"مدنية"},
+{n:25,a:"الفرقان",c:77,t:"مكية"},{n:26,a:"الشعراء",c:227,t:"مكية"},{n:27,a:"النمل",c:93,t:"مكية"},
+{n:28,a:"القصص",c:88,t:"مكية"},{n:29,a:"العنكبوت",c:69,t:"مكية"},{n:30,a:"الروم",c:60,t:"مكية"},
+{n:31,a:"لقمان",c:34,t:"مكية"},{n:32,a:"السجدة",c:30,t:"مكية"},{n:33,a:"الأحزاب",c:73,t:"مدنية"},
+{n:34,a:"سبأ",c:54,t:"مكية"},{n:35,a:"فاطر",c:45,t:"مكية"},{n:36,a:"يس",c:83,t:"مكية"},
+{n:37,a:"الصافات",c:182,t:"مكية"},{n:38,a:"ص",c:88,t:"مكية"},{n:39,a:"الزمر",c:75,t:"مكية"},
+{n:40,a:"غافر",c:85,t:"مكية"},{n:41,a:"فصلت",c:54,t:"مكية"},{n:42,a:"الشورى",c:53,t:"مكية"},
+{n:43,a:"الزخرف",c:89,t:"مكية"},{n:44,a:"الدخان",c:59,t:"مكية"},{n:45,a:"الجاثية",c:37,t:"مكية"},
+{n:46,a:"الأحقاف",c:35,t:"مكية"},{n:47,a:"محمد",c:38,t:"مدنية"},{n:48,a:"الفتح",c:29,t:"مدنية"},
+{n:49,a:"الحجرات",c:18,t:"مدنية"},{n:50,a:"ق",c:45,t:"مكية"},{n:51,a:"الذاريات",c:60,t:"مكية"},
+{n:52,a:"الطور",c:49,t:"مكية"},{n:53,a:"النجم",c:62,t:"مكية"},{n:54,a:"القمر",c:55,t:"مكية"},
+{n:55,a:"الرحمن",c:78,t:"مدنية"},{n:56,a:"الواقعة",c:96,t:"مكية"},{n:57,a:"الحديد",c:29,t:"مدنية"},
+{n:58,a:"المجادلة",c:22,t:"مدنية"},{n:59,a:"الحشر",c:24,t:"مدنية"},{n:60,a:"الممتحنة",c:13,t:"مدنية"},
+{n:61,a:"الصف",c:14,t:"مدنية"},{n:62,a:"الجمعة",c:11,t:"مدنية"},{n:63,a:"المنافقون",c:11,t:"مدنية"},
+{n:64,a:"التغابن",c:18,t:"مدنية"},{n:65,a:"الطلاق",c:12,t:"مدنية"},{n:66,a:"التحريم",c:12,t:"مدنية"},
+{n:67,a:"الملك",c:30,t:"مكية"},{n:68,a:"القلم",c:52,t:"مكية"},{n:69,a:"الحاقة",c:52,t:"مكية"},
+{n:70,a:"المعارج",c:44,t:"مكية"},{n:71,a:"نوح",c:28,t:"مكية"},{n:72,a:"الجن",c:28,t:"مكية"},
+{n:73,a:"المزمل",c:20,t:"مكية"},{n:74,a:"المدثر",c:56,t:"مكية"},{n:75,a:"القيامة",c:40,t:"مكية"},
+{n:76,a:"الإنسان",c:31,t:"مدنية"},{n:77,a:"المرسلات",c:50,t:"مكية"},{n:78,a:"النبأ",c:40,t:"مكية"},
+{n:79,a:"النازعات",c:46,t:"مكية"},{n:80,a:"عبس",c:42,t:"مكية"},{n:81,a:"التكوير",c:29,t:"مكية"},
+{n:82,a:"الانفطار",c:19,t:"مكية"},{n:83,a:"المطففين",c:36,t:"مكية"},{n:84,a:"الانشقاق",c:25,t:"مكية"},
+{n:85,a:"البروج",c:22,t:"مكية"},{n:86,a:"الطارق",c:17,t:"مكية"},{n:87,a:"الأعلى",c:19,t:"مكية"},
+{n:88,a:"الغاشية",c:26,t:"مكية"},{n:89,a:"الفجر",c:30,t:"مكية"},{n:90,a:"البلد",c:20,t:"مكية"},
+{n:91,a:"الشمس",c:15,t:"مكية"},{n:92,a:"الليل",c:21,t:"مكية"},{n:93,a:"الضحى",c:11,t:"مكية"},
+{n:94,a:"الشرح",c:8,t:"مكية"},{n:95,a:"التين",c:8,t:"مكية"},{n:96,a:"العلق",c:19,t:"مكية"},
+{n:97,a:"القدر",c:5,t:"مكية"},{n:98,a:"البينة",c:8,t:"مدنية"},{n:99,a:"الزلزلة",c:8,t:"مدنية"},
+{n:100,a:"العاديات",c:11,t:"مكية"},{n:101,a:"القارعة",c:11,t:"مكية"},{n:102,a:"التكاثر",c:8,t:"مكية"},
+{n:103,a:"العصر",c:3,t:"مكية"},{n:104,a:"الهمزة",c:9,t:"مكية"},{n:105,a:"الفيل",c:5,t:"مكية"},
+{n:106,a:"قريش",c:4,t:"مكية"},{n:107,a:"الماعون",c:7,t:"مكية"},{n:108,a:"الكوثر",c:3,t:"مكية"},
+{n:109,a:"الكافرون",c:6,t:"مكية"},{n:110,a:"النصر",c:3,t:"مدنية"},{n:111,a:"المسد",c:5,t:"مكية"},
+{n:112,a:"الإخلاص",c:4,t:"مكية"},{n:113,a:"الفلق",c:5,t:"مكية"},{n:114,a:"الناس",c:6,t:"مكية"}
+];
+
+const RECITERS=[
+{id:'Alafasy_128kbps',n:'مشاري العفاسي',s:'مرتل'},{id:'Abdul_Basit_Murattal_192kbps',n:'عبد الباسط عبد الصمد',s:'مرتل'},
+{id:'Abdul_Basit_Mujawwad_128kbps',n:'عبد الباسط عبد الصمد',s:'مجود'},{id:'Husary_128kbps',n:'محمود خليل الحصري',s:'مرتل'},
+{id:'Husary_Muallim_128kbps',n:'محمود خليل الحصري',s:'معلم'},{id:'Minshawy_Murattal_128kbps',n:'محمد صديق المنشاوي',s:'مرتل'},
+{id:'Minshawy_Mujawwad_192kbps',n:'محمد صديق المنشاوي',s:'مجود'},{id:'Abdurrahmaan_As-Sudais_192kbps',n:'عبدالرحمن السديس',s:'مرتل'},
+{id:'Abu_Bakr_Ash-Shaatree_128kbps',n:'أبو بكر الشاطري',s:'مرتل'},{id:'Saood_ash-Shuraym_128kbps',n:'سعود الشريم',s:'مرتل'},
+{id:'Hani_Rifai_192kbps',n:'هاني الرفاعي',s:'مرتل'},{id:'Maher_AlMuaiqly_128kbps',n:'ماهر المعيقلي',s:'مرتل'},
+{id:'Muhammad_Jibreel_128kbps',n:'محمد جبريل',s:'مرتل'},{id:'Muhammad_Ayyoub_128kbps',n:'محمد أيوب',s:'مرتل'},
+{id:'Yasser_Ad-Dussary_128kbps',n:'ياسر الدوسري',s:'مرتل'},{id:'Ahmed_ibn_Ali_al-Ajamy_128kbps_ketaballah.net',n:'أحمد العجمي',s:'مرتل'},
+{id:'Nasser_Alqatami_128kbps',n:'ناصر القطامي',s:'مرتل'},{id:'Ali_Jaber_192kbps',n:'علي جابر',s:'مرتل'},
+{id:'Fares_Abbad_64kbps',n:'فارس عباد',s:'مرتل'},{id:'Sahl_Yassin_128kbps',n:'سهل ياسين',s:'مرتل'},
+{id:'Salah_AlBudworthy',n:'صلاح البدوردي',s:'مرتل'},{id:'Abdullah_Basfar_192kbps',n:'عبدالله بصفر',s:'مرتل'},
+{id:'Khalefa_Al_Tunaiji_64kbps',n:'خليفة الطنيجي',s:'مرتل'},{id:'Abdullah_Matroud_128kbps',n:'عبدالله المطرود',s:'مرتل'},
+{id:'Ibrahim_Akhdar_32kbps',n:'إبراهيم الأخضر',s:'مرتل'},{id:'Khaalid_Abdullaah_al-Qahtaanee_192kbps',n:'خالد القحطاني',s:'مرتل'},
+{id:'Ahmed_Neana_128kbps',n:'أحمد نعينع',s:'مرتل'},{id:'Parhizgar_48kbps',n:'شهريار بارحزكار',s:'مرتل'},
+{id:'Ayman_Sowaid_64kbps',n:'أيمن سويد',s:'مرتل'},{id:'Mishari_Walk_128kbps',n:'مشاري العفاسي',s:'حفص عن عاصم'}
+];
+
+const TRANSLATIONS=[
+{id:'ar.jalalayn',n:'تفسير الجلالين',l:'ar'},{id:'en.sahih',n:'English - Saheeh Intl',l:'en'},
+{id:'en.asad',n:'English - Muhammad Asad',l:'en'},{id:'fr.hamidullah',n:'Français',l:'fr'},
+{id:'es.asad',n:'Español',l:'es'},{id:'pt.elhayek',n:'Português',l:'pt'},
+{id:'it.piccardo',n:'Italiano',l:'it'},{id:'nl.keyzer',n:'Nederlands',l:'nl'},
+{id:'ru.kuliev',n:'Русский',l:'ru'},{id:'tr.ates',n:'Türkçe',l:'tr'},
+{id:'zh.majian',n:'中文',l:'zh'},{id:'ja.japanese',n:'日本語',l:'ja'},
+{id:'hi.hindi',n:'हिन्दी',l:'hi'},{id:'uk.yakubovych',n:'Українська',l:'uk'},
+{id:'de.bubenheim',n:'Deutsch',l:'de'},{id:'ur.jalandhry',n:'اردو',l:'ur'},
+{id:'bn.bengali',n:'বাংলা',l:'bn'},{id:'id.indonesian',n:'Indonesia',l:'id'},
+{id:'ko.korean',n:'한국어',l:'ko'},{id:'ms.basmeih',n:'Melayu',l:'ms'}
+];
+
+const PLATFORMS={
+'youtube':{w:3840,h:2160,r:'16:9',fmt:'MP4',codec:'H.264',audio:'AAC-LC 48kHz'},
+'youtube-shorts':{w:2160,h:3840,r:'9:16',fmt:'MP4',codec:'H.264/H.265',audio:'AAC-LC 48kHz'},
+'tiktok':{w:1080,h:1920,r:'9:16',fmt:'MP4',codec:'H.264',audio:'AAC 128-384kbps'},
+'kwai':{w:1080,h:1920,r:'9:16',fmt:'MP4',codec:'H.264',audio:'AAC'},
+'instagram-reels':{w:1080,h:1920,r:'9:16',fmt:'MP4',codec:'H.264',audio:'AAC 128-384kbps'},
+'instagram-post':{w:1080,h:1080,r:'1:1',fmt:'MP4',codec:'H.264',audio:'AAC'},
+'instagram-story':{w:1080,h:1920,r:'9:16',fmt:'MP4',codec:'H.264',audio:'AAC'},
+'snapchat':{w:1080,h:1920,r:'9:16',fmt:'MP4',codec:'H.264',audio:'AAC'},
+'facebook':{w:1920,h:1080,r:'16:9',fmt:'MP4',codec:'H.264',audio:'AAC'},
+'twitter':{w:1920,h:1080,r:'16:9',fmt:'MP4',codec:'H.264',audio:'AAC'}
+};
+
+// ═══ STATE ═══
+let curSurah=null,curAyahs=[],curTrans=[],curTafsir=[];
+let selAyNum=null,playIdx=0,isPlaying=false,isRepeat=false;
+let audioEl=new Audio();
+let fontSize=parseInt(localStorage.getItem('fs')||'30');
+let mediaRecorder=null,recordedChunks=[];
+let selectedPlatforms=['youtube'];
+
+// ═══ INIT ═══
+window.addEventListener('DOMContentLoaded',init);
+function init(){
+document.getElementById('yearFooter').textContent=new Date().getFullYear();
+populateSelects();buildIndex();buildRecitersGrid();
+applyTheme(localStorage.getItem('thm')||'light');
+document.documentElement.style.setProperty('--qs',fontSize+'px');
+document.getElementById('fontLbl').textContent=fontSize;
+audioEl.addEventListener('timeupdate',updateProgress);
+audioEl.addEventListener('ended',onAudioEnded);
+audioEl.addEventListener('loadedmetadata',()=>{document.getElementById('durationTime').textContent=formatTime(audioEl.duration)});
+const last=localStorage.getItem('lastS');
+if(last)loadSurah(parseInt(last));
+initCanvas();
+}
+
+function populateSelects(){
+const ss=document.getElementById('surahSelect');
+const vs=document.getElementById('vmSurah');
+ss.innerHTML='<option value="">اختر السورة</option>';
+vs.innerHTML='<option value="">اختر السورة</option>';
+SURAHS.forEach(s=>{
+const o=`<option value="${s.n}">${s.n}. سورة ${s.a}</option>`;
+ss.innerHTML+=o;vs.innerHTML+=o;
+});
+const ts=document.getElementById('transSelect');
+TRANSLATIONS.forEach(t=>{ts.innerHTML+=`<option value="${t.id}">${t.n}</option>`});
+const rs=document.getElementById('reciterSelect');
+const vr=document.getElementById('vmReciter');
+RECITERS.forEach(r=>{
+const o=`<option value="${r.id}">${r.n} (${r.s})</option>`;
+rs.innerHTML+=o;vr.innerHTML+=o;
+});
+const js=document.getElementById('juzSelect');
+for(let i=1;i<=30;i++)js.innerHTML+=`<option value="${i}">الجزء ${i}</option>`;
+}
+
+function buildIndex(){
+const el=document.getElementById('surahIndex');
+let h='';
+SURAHS.forEach(s=>{
+h+=`<div class="surah-item" id="idx-${s.n}" onclick="loadSurah(${s.n})">
+<div class="s-num"><span>${s.n}</span></div>
+<div><div class="s-name">سورة ${s.a}</div><div class="s-info">${s.t} | ${s.c} آية</div></div></div>`;
+});
+el.innerHTML=h;
+}
+
+function buildRecitersGrid(){
+const el=document.getElementById('recitersGrid');
+let h='';
+RECITERS.forEach((r,i)=>{
+h+=`<div class="reciter-card${i===0?' sel':''}" onclick="selectReciter(this,'${r.id}')" data-name="${r.n} ${r.s}">
+<div class="reciter-avatar">🎙️</div>
+<div><div class="reciter-name">${r.n}</div><div class="reciter-style">${r.s}</div></div></div>`;
+});
+el.innerHTML=h;
+}
+
+function filterReciters(){
+const q=document.getElementById('reciterSearch').value.trim().toLowerCase();
+document.querySelectorAll('.reciter-card').forEach(c=>{
+c.style.display=c.dataset.name.toLowerCase().includes(q)?'':'none';
+});
+}
+
+function selectReciter(el,id){
+document.querySelectorAll('.reciter-card').forEach(c=>c.classList.remove('sel'));
+el.classList.add('sel');
+document.getElementById('reciterSelect').value=id;
+if(isPlaying)playCurAyah();
+showToast('تم تغيير القارئ');
+}
+
+// ═══ LOAD SURAH ═══
+async function loadSurah(num){
+num=parseInt(num);if(!num)return;
+curSurah=SURAHS.find(s=>s.n===num);
+document.getElementById('welcomeScreen').style.display='none';
+document.getElementById('quranView').style.display='block';
+document.getElementById('surahSelect').value=num;
+document.getElementById('surahName').textContent='سورة '+curSurah.a;
+document.getElementById('surahMeta').innerHTML=`<span>${curSurah.t}</span><span>${curSurah.c} آية</span>`;
+document.getElementById('bismillah').style.display=(num===1||num===9)?'none':'block';
+document.getElementById('prevSurah').disabled=(num<=1);
+document.getElementById('nextSurah').disabled=(num>=114);
+document.getElementById('plSurahName').textContent='سورة '+curSurah.a;
+localStorage.setItem('lastS',num);
+stopAudio();
+document.querySelectorAll('.surah-item').forEach(e=>e.classList.remove('act'));
+const idx=document.getElementById('idx-'+num);
+if(idx){idx.classList.add('act');idx.scrollIntoView({block:'nearest'})}
+document.getElementById('ayahContainer').innerHTML='<div class="loading"><div class="spinner"></div><span>جارٍ تحميل السورة...</span></div>';
+document.getElementById('qMain').scrollTo({top:0,behavior:'smooth'});
+try{
+const res=await fetch(`https://api.alquran.cloud/v1/surah/${num}/quran-uthmani`);
+const data=await res.json();
+if(data.code===200){curAyahs=data.data.ayahs;renderAyahs()}else throw new Error();
+}catch(e){
+document.getElementById('ayahContainer').innerHTML=`<div class="loading"><span style="color:#DC3545">❌ خطأ - <button class="btn btn-sm btn-primary" onclick="loadSurah(${num})">إعادة</button></span></div>`;
+}
+fetchTranslation(num);fetchTafsir(num);
+}
+
+function renderAyahs(){
+let h='';
+curAyahs.forEach(a=>{
+h+=`<span class="ayah-text" id="ay-${a.numberInSurah}">${a.text}</span>`;
+h+=`<span class="ayah-num" onclick="ayahAction(${a.numberInSurah})" title="آية ${a.numberInSurah}">${a.numberInSurah}</span> `;
+});
+document.getElementById('ayahContainer').innerHTML=h;
+if(curAyahs.length>0){
+const f=curAyahs[0];
+document.getElementById('pageInfo').innerHTML=`<span>📄 الصفحة: ${f.page}</span><span>📑 الجزء: ${f.juz}</span><span>الحزب: ${f.hizbQuarter}</span>`;
+}
+}
+
+async function fetchTranslation(num){
+const lang=document.getElementById('transSelect').value;
+try{
+const res=await fetch(`https://api.alquran.cloud/v1/surah/${num}/${lang}`);
+const data=await res.json();
+if(data.code===200){curTrans=data.data.ayahs;renderTranslation()}else throw new Error();
+}catch(e){document.getElementById('transContent').innerHTML='<p style="padding:20px;text-align:center;color:#DC3545">❌ الترجمة غير متاحة</p>';curTrans=[];}
+}
+
+function renderTranslation(){
+let h='';
+curTrans.forEach(a=>{
+h+=`<div class="trans-verse" id="tr-${a.numberInSurah}" onclick="highlightAyah(${a.numberInSurah})">
+<span class="trans-num">${a.numberInSurah}</span><span class="trans-text">${a.text}</span></div>`;
+});
+document.getElementById('transContent').innerHTML=h;
+}
+
+async function fetchTafsir(num){
+try{
+const res=await fetch(`https://api.alquran.cloud/v1/surah/${num}/ar.jalalayn`);
+const data=await res.json();
+if(data.code===200){curTafsir=data.data.ayahs;renderTafsir()}
+}catch(e){curTafsir=[];}
+}
+
+function renderTafsir(){
+let h='';
+curTafsir.forEach((a,i)=>{
+const ar=curAyahs[i]?curAyahs[i].text:'';
+h+=`<div class="trans-verse" onclick="highlightAyah(${a.numberInSurah})" style="flex-direction:column;gap:6px">
+<div style="font-family:var(--fq);font-size:15px;color:var(--p1);background:var(--g5);padding:6px 10px;border-radius:6px;line-height:2">﴿ ${ar} ﴾ [${a.numberInSurah}]</div>
+<div class="trans-text">${a.text}</div></div>`;
+});
+document.getElementById('tafsirContent').innerHTML=h;
+}
+
+function changeTranslation(){if(curSurah)fetchTranslation(curSurah.n)}
+function changeReciter(){if(isPlaying)playCurAyah();showToast('تم تغيير القارئ')}
+
+async function loadJuz(num){
+num=parseInt(num);if(!num)return;
+document.getElementById('welcomeScreen').style.display='none';
+document.getElementById('quranView').style.display='block';
+document.getElementById('surahName').textContent='الجزء '+num;
+document.getElementById('surahMeta').innerHTML='';
+document.getElementById('bismillah').style.display='none';
+document.getElementById('ayahContainer').innerHTML='<div class="loading"><div class="spinner"></div><span>جارٍ التحميل...</span></div>';
+stopAudio();
+try{
+const res=await fetch(`https://api.alquran.cloud/v1/juz/${num}/quran-uthmani`);
+const data=await res.json();
+if(data.code===200){curAyahs=data.data.ayahs;let h='',ls=0;
+curAyahs.forEach(a=>{if(a.surah.number!==ls){ls=a.surah.number;h+=`<div class="surah-header" style="margin:14px 0"><div class="surah-name" style="font-size:20px">سورة ${a.surah.name}</div></div>`}
+h+=`<span class="ayah-text">${a.text}</span><span class="ayah-num">${a.numberInSurah}</span> `});
+document.getElementById('ayahContainer').innerHTML=h;document.getElementById('pageInfo').innerHTML=''}
+}catch(e){document.getElementById('ayahContainer').innerHTML='<div class="loading"><span style="color:#DC3545">❌ خطأ</span></div>'}
+}
+
+async function loadPage(num){
+num=parseInt(num);if(!num||num<1||num>604)return;
+document.getElementById('welcomeScreen').style.display='none';
+document.getElementById('quranView').style.display='block';
+document.getElementById('surahName').textContent='الصفحة '+num;
+document.getElementById('surahMeta').innerHTML='';
+document.getElementById('bismillah').style.display='none';
+document.getElementById('ayahContainer').innerHTML='<div class="loading"><div class="spinner"></div><span>جارٍ التحميل...</span></div>';
+try{
+const res=await fetch(`https://api.alquran.cloud/v1/page/${num}/quran-uthmani`);
+const data=await res.json();
+if(data.code===200){curAyahs=data.data.ayahs;let h='',ls=0;
+curAyahs.forEach(a=>{if(a.surah.number!==ls){ls=a.surah.number;h+=`<div class="surah-header" style="margin:14px 0"><div class="surah-name" style="font-size:20px">سورة ${a.surah.name}</div></div>`}
+h+=`<span class="ayah-text">${a.text}</span><span class="ayah-num">${a.numberInSurah}</span> `});
+document.getElementById('ayahContainer').innerHTML=h}
+}catch(e){document.getElementById('ayahContainer').innerHTML='<div class="loading"><span style="color:#DC3545">❌ خطأ</span></div>'}
+}
+
+// ═══ AUDIO ═══
+function getAudioUrl(sNum,aNum){const r=document.getElementById('reciterSelect').value;return`https://everyayah.com/data/${r}/${String(sNum).padStart(3,'0')}${String(aNum).padStart(3,'0')}.mp3`}
+function ayahAction(num){selAyNum=num;playIdx=curAyahs.findIndex(a=>a.numberInSurah===num);if(playIdx>=0)playCurAyah()}
+function playCurAyah(){if(playIdx<0||playIdx>=curAyahs.length)return;const a=curAyahs[playIdx];const sn=curSurah?curSurah.n:1;
+audioEl.src=getAudioUrl(sn,a.numberInSurah);audioEl.play().catch(e=>console.log(e));isPlaying=true;updatePlayBtn();highlightAyah(a.numberInSurah);
+document.getElementById('plSurahName').textContent=curSurah?'سورة '+curSurah.a:'القرآن';document.getElementById('plAyahNum').textContent='الآية '+a.numberInSurah}
+function togglePlayPause(){if(!audioEl.src){if(curAyahs.length){playIdx=0;playCurAyah()}return}if(isPlaying){audioEl.pause();isPlaying=false}else{audioEl.play().catch(e=>{});isPlaying=true}updatePlayBtn()}
+function stopAudio(){audioEl.pause();audioEl.src='';isPlaying=false;playIdx=0;updatePlayBtn();clearHighlights();
+document.getElementById('progressFill').style.width='0%';document.getElementById('currentTime').textContent='0:00';document.getElementById('durationTime').textContent='0:00'}
+function nextAyahAudio(){if(playIdx<curAyahs.length-1){playIdx++;playCurAyah()}}
+function prevAyahAudio(){if(playIdx>0){playIdx--;playCurAyah()}}
+function onAudioEnded(){if(isRepeat){audioEl.currentTime=0;audioEl.play();return}if(playIdx<curAyahs.length-1){playIdx++;playCurAyah()}else{isPlaying=false;updatePlayBtn()}}
+function toggleRepeat(){isRepeat=!isRepeat;const b=document.getElementById('repeatBtn');b.style.background=isRepeat?'var(--g5)':'';b.style.color=isRepeat?'var(--p1)':''}
+function updateProgress(){if(audioEl.duration){document.getElementById('progressFill').style.width=(audioEl.currentTime/audioEl.duration*100)+'%';document.getElementById('currentTime').textContent=formatTime(audioEl.currentTime)}}
+function seekAudio(e){if(!audioEl.duration)return;const b=e.currentTarget.getBoundingClientRect();audioEl.currentTime=(e.clientX-b.left)/b.width*audioEl.duration}
+function updatePlayBtn(){document.getElementById('playPauseBtn').textContent=isPlaying?'⏸':'▶'}
+function highlightAyah(num){clearHighlights();const el=document.getElementById('ay-'+num);if(el){el.classList.add('playing');el.scrollIntoView({behavior:'smooth',block:'center'})}
+document.querySelectorAll('.trans-verse').forEach(e=>e.classList.remove('hl'));const tr=document.getElementById('tr-'+num);if(tr){tr.classList.add('hl');tr.scrollIntoView({behavior:'smooth',block:'center'})}}
+function clearHighlights(){document.querySelectorAll('.ayah-text.playing').forEach(e=>e.classList.remove('playing'))}
+function formatTime(s){if(!s||isNaN(s))return'0:00';const m=Math.floor(s/60),sc=Math.floor(s%60);return m+':'+(sc<10?'0':'')+sc}
+
+// ═══ SEARCH ═══
+let searchTimer;
+function doSearch(){
+clearTimeout(searchTimer);
+const q=document.getElementById('searchInput').value.trim();
+if(q.length<2){document.getElementById('searchResults').innerHTML='';return}
+let h='';SURAHS.filter(s=>s.a.includes(q)||String(s.n)===q).forEach(s=>{
+h+=`<div class="surah-item" onclick="loadSurah(${s.n})"><div class="s-num"><span>${s.n}</span></div><div><div class="s-name">سورة ${s.a}</div></div></div>`;});
+searchTimer=setTimeout(async()=>{
+try{const res=await fetch(`https://api.alquran.cloud/v1/search/${encodeURIComponent(q)}/all/quran-uthmani`);
+const data=await res.json();
+if(data.code===200&&data.data.matches){data.data.matches.slice(0,20).forEach(m=>{
+h+=`<div class="surah-item" onclick="loadSurah(${m.surah.number})" style="flex-direction:column;align-items:stretch;gap:4px">
+<div style="font-size:12px;font-weight:600">سورة ${m.surah.name} [${m.numberInSurah}]</div>
+<div style="font-family:var(--fq);font-size:15px;line-height:2">${m.text}</div></div>`})}
+document.getElementById('searchResults').innerHTML=h||'<p style="padding:20px;text-align:center;color:var(--tx3)">لا نتائج</p>'}catch(e){}},500);
+document.getElementById('searchResults').innerHTML=h;
+}
+
+// ═══ CANVAS & VIDEO ═══
+let canvas,ctx;
+function initCanvas(){
+canvas=document.getElementById('previewCanvas');
+ctx=canvas.getContext('2d');
+canvas.width=1080;canvas.height=1920;
+updatePreview();
+}
+
+function updatePreview(){
+if(!ctx)return;
+const bg=document.getElementById('vmBg').value;
+const textColor=document.getElementById('vmTextColor').value;
+const fs=parseInt(document.getElementById('vmFontSize').value)||28;
+// Draw background
+const gradients={
+'gradient-dark':['#0a0a0a','#1a1a2e','#0a0a0a'],
+'gradient-green':['#0a2a1a','#1B4332','#0a2a1a'],
+'gradient-gold':['#1a1000','#3a2a00','#1a1000'],
+'gradient-blue':['#0a1628','#1a3050','#0a1628'],
+'gradient-purple':['#1a0a2a','#2a1a4a','#1a0a2a'],
+'solid-black':['#000','#000','#000'],
+'solid-dark':['#111','#111','#111'],
+'pattern-islamic':['#0a2a1a','#1B4332','#0a2a1a']
+};
+const colors=gradients[bg]||gradients['gradient-dark'];
+const grd=ctx.createLinearGradient(0,0,0,canvas.height);
+grd.addColorStop(0,colors[0]);grd.addColorStop(0.5,colors[1]);grd.addColorStop(1,colors[2]);
+ctx.fillStyle=grd;ctx.fillRect(0,0,canvas.width,canvas.height);
+// Draw decorative border
+ctx.strokeStyle='rgba(218,165,32,0.3)';ctx.lineWidth=2;
+ctx.strokeRect(40,40,canvas.width-80,canvas.height-80);
+ctx.strokeRect(50,50,canvas.width-100,canvas.height-100);
+// Draw text
+ctx.fillStyle=textColor;ctx.textAlign='center';ctx.textBaseline='middle';
+ctx.font=`${fs}px "Amiri Quran", "Amiri", serif`;
+const ayahText=document.getElementById('previewAyah').textContent||'﴿ بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِيمِ ﴾';
+wrapText(ctx,ayahText,canvas.width/2,canvas.height/2,canvas.width-120,fs*2);
+// Reference
+ctx.font='24px "Cairo", sans-serif';ctx.fillStyle='rgba(255,255,255,0.6)';
+ctx.fillText(document.getElementById('previewRef').textContent||'',canvas.width/2,canvas.height-120);
+}
+
+function wrapText(ctx,text,x,y,maxW,lineH){
+const words=text.split(' ');let line='';let lines=[];
+words.forEach(w=>{const test=line+w+' ';if(ctx.measureText(test).width>maxW&&line){lines.push(line.trim());line=w+' '}else line=test});
+if(line)lines.push(line.trim());
+const startY=y-(lines.length-1)*lineH/2;
+lines.forEach((l,i)=>ctx.fillText(l,x,startY+i*lineH));
+}
+
+function generateVideo(){
+showToast('🎬 جارٍ إنشاء الفيديو... هذا قد يستغرق بعض الوقت');
+if(!canvas)initCanvas();
+try{
+const stream=canvas.captureStream(30);
+const recorder=new MediaRecorder(stream,{mimeType:'video/webm;codecs=vp9'});
+const chunks=[];
+recorder.ondataavailable=e=>{if(e.data.size>0)chunks.push(e.data)};
+recorder.onstop=()=>{
+const blob=new Blob(chunks,{type:'video/webm'});
+const url=URL.createObjectURL(blob);
+const a=document.createElement('a');a.href=url;
+a.download=`quran_video_${Date.now()}.webm`;a.click();
+URL.revokeObjectURL(url);
+showToast('✅ تم إنشاء الفيديو بنجاح!');
+};
+// Animate for 10 seconds
+recorder.start();
+let frame=0;const totalFrames=300;
+const animate=()=>{
+if(frame>=totalFrames){recorder.stop();return}
+updatePreview();frame++;requestAnimationFrame(animate);
+};
+animate();
+}catch(e){showToast('❌ خطأ في إنشاء الفيديو: '+e.message)}
+}
+
+function captureFrame(){
+if(!canvas)initCanvas();
+updatePreview();
+canvas.toBlob(blob=>{
+const url=URL.createObjectURL(blob);
+const a=document.createElement('a');a.href=url;
+a.download=`quran_image_${Date.now()}.png`;a.click();
+URL.revokeObjectURL(url);
+showToast('✅ تم حفظ الصورة');
+},'image/png');
+}
+
+function loadBgImage(){
+const file=document.getElementById('vmBgImage').files[0];
+if(!file)return;
+const reader=new FileReader();
+reader.onload=e=>{
+const img=new Image();
+img.onload=()=>{
+if(!ctx)initCanvas();
+ctx.drawImage(img,0,0,canvas.width,canvas.height);
+showToast('✅ تم تحميل الخلفية');
+};
+img.src=e.target.result;
+};
+reader.readAsDataURL(file);
+}
+
+// ═══ AI IMAGE GENERATION ═══
+function generateAI(){
+const style=document.getElementById('aiStyle').value;
+const colors=document.getElementById('aiColors').value;
+const ratio=document.getElementById('aiRatio').value;
+const count=parseInt(document.getElementById('aiCount').value);
+const type=document.getElementById('aiType').value;
+showToast('🎨 جارٍ توليد الصور...');
+const grid=document.getElementById('aiGrid');
+const results=document.getElementById('aiResults');
+results.style.display='block';
+grid.innerHTML='';
+const [rw,rh]=ratio.split(':').map(Number);
+const w=rw*100;const h=rh*100;
+for(let i=0;i<count;i++){
+const c=document.createElement('canvas');
+c.width=w;c.height=h;
+const cx=c.getContext('2d');
+generateAIImage(cx,w,h,style,colors,i);
+const div=document.createElement('div');
+div.className='ai-img';
+div.style.aspectRatio=ratio.replace(':','/');
+const img=document.createElement('img');
+img.src=c.toDataURL('image/png');
+const dl=document.createElement('button');
+dl.className='ai-dl';dl.textContent='📥 تحميل';
+dl.onclick=()=>{const a=document.createElement('a');a.href=img.src;a.download=`ai_bg_${i+1}.png`;a.click()};
+div.appendChild(img);div.appendChild(dl);grid.appendChild(div);
+}
+showToast(`✅ تم توليد ${count} صور`);
+}
+
+function generateAIImage(cx,w,h,style,colors,seed){
+const palettes={
+'green-gold':['#1B4332','#2D6A4F','#40916C','#DAA520','#F0C850'],
+'blue-white':['#0a1628','#1a3050','#2a5080','#ffffff','#87CEEB'],
+'dark':['#0a0a0a','#1a1a2e','#16213e','#533483','#2c3e50'],
+'warm':['#2d1810','#5a2a1a','#8B4513','#DAA520','#FF6347'],
+'cool':['#0a1628','#1a3050','#4682B4','#87CEEB','#E0E0E0']
+};
+const pal=palettes[colors]||palettes['green-gold'];
+// Background gradient
+const grd=cx.createLinearGradient(0,0,w,h);
+grd.addColorStop(0,pal[0]);grd.addColorStop(0.5,pal[1]);grd.addColorStop(1,pal[2]);
+cx.fillStyle=grd;cx.fillRect(0,0,w,h);
+// Patterns based on style
+const rng=(s)=>{s=s*9301+49297;return(s%233280)/233280};
+if(style==='islamic-art'||style==='geometric'){
+cx.strokeStyle=pal[3]+'40';cx.lineWidth=1;
+for(let i=0;i<20;i++){
+const x=rng(seed*100+i)*w;const y=rng(seed*200+i)*h;const r=20+rng(seed*300+i)*60;
+cx.beginPath();
+for(let j=0;j<8;j++){const angle=j*Math.PI/4;cx.moveTo(x,y);cx.lineTo(x+Math.cos(angle)*r,y+Math.sin(angle)*r)}
+cx.stroke();
+}
+}else if(style==='mosque'){
+cx.fillStyle=pal[3]+'30';
+cx.beginPath();cx.arc(w/2,h*0.6,w*0.3,Math.PI,0);cx.fill();
+cx.fillRect(w/2-10,h*0.3,20,h*0.3);
+cx.beginPath();cx.arc(w/2,h*0.3,15,0,Math.PI*2);cx.fill();
+}else if(style==='nature'){
+for(let i=0;i<50;i++){cx.fillStyle=pal[3]+'15';cx.beginPath();cx.arc(rng(seed*100+i)*w,rng(seed*200+i)*h,rng(seed*300+i)*30+5,0,Math.PI*2);cx.fill()}
+}else if(style==='space'){
+for(let i=0;i<100;i++){cx.fillStyle=`rgba(255,255,255,${rng(seed*400+i)*0.8})`;cx.beginPath();cx.arc(rng(seed*100+i)*w,rng(seed*200+i)*h,rng(seed*300+i)*2+0.5,0,Math.PI*2);cx.fill()}
+}else{
+for(let i=0;i<30;i++){cx.fillStyle=pal[Math.floor(rng(seed*500+i)*pal.length)]+'20';cx.beginPath();cx.arc(rng(seed*100+i)*w,rng(seed*200+i)*h,rng(seed*300+i)*50+10,0,Math.PI*2);cx.fill()}
+}
+// Border
+cx.strokeStyle=pal[3]+'50';cx.lineWidth=2;cx.strokeRect(15,15,w-30,h-30);
+}
+
+function downloadAllAI(){
+document.querySelectorAll('.ai-img img').forEach((img,i)=>{
+const a=document.createElement('a');a.href=img.src;a.download=`ai_bg_${i+1}.png`;a.click();
+});
+showToast('✅ تم تحميل جميع الصور');
+}
+
+function useAsBackground(){
+const imgs=document.querySelectorAll('.ai-img img');
+if(imgs.length>0){
+const img=new Image();
+img.onload=()=>{
+if(!ctx)initCanvas();
+ctx.drawImage(img,0,0,canvas.width,canvas.height);
+switchSection('video',document.querySelectorAll('.nav-tab')[1]);
+showToast('✅ تم تطبيق الخلفية على الفيديو');
+};
+img.src=imgs[0].src;
+}
+}
+
+// ═══ VIDEO EDITOR ═══
+function loadEditorVideo(){
+const file=document.getElementById('editorVideoFile').files[0];
+if(!file)return;
+const video=document.getElementById('editorVideo');
+video.src=URL.createObjectURL(file);
+showToast('✅ تم تحميل الفيديو');
+}
+
+function mergeAudioVideo(){showToast('🔀 جارٍ دمج الصوت... يتطلب معالجة')}
+function removeAudio(){const v=document.getElementById('editorVideo');v.muted=true;showToast('🔇 تم كتم الصوت')}
+function trimVideo(){showToast('✂️ أداة القص - استخدم عناصر التحكم في الفيديو')}
+
+// ═══ LIVE / RECORDING ═══
+let liveStream=null;
+async function startLive(){
+try{
+const source=document.getElementById('liveSource').value;
+const quality=document.getElementById('liveQuality').value;
+const constraints={video:{width:{ideal:source==='camera'?1920:3840},height:{ideal:source==='camera'?1080:2160}},audio:true};
+if(source==='camera'){liveStream=await navigator.mediaDevices.getUserMedia(constraints)}
+else{liveStream=await navigator.mediaDevices.getDisplayMedia({video:true,audio:true})}
+document.getElementById('liveVideo').srcObject=liveStream;
+document.getElementById('liveIndicator').style.display='block';
+document.getElementById('liveStartBtn').style.display='none';
+document.getElementById('liveStopBtn').style.display='';
+// Start recording
+mediaRecorder=new MediaRecorder(liveStream,{mimeType:'video/webm'});
+recordedChunks=[];
+mediaRecorder.ondataavailable=e=>{if(e.data.size>0)recordedChunks.push(e.data)};
+mediaRecorder.onstop=()=>{
+const blob=new Blob(recordedChunks,{type:'video/webm'});
+const url=URL.createObjectURL(blob);
+const a=document.createElement('a');a.href=url;a.download=`recording_${Date.now()}.webm`;a.click();
+showToast('✅ تم حفظ التسجيل');
+};
+mediaRecorder.start(1000);
+showToast('🔴 جارٍ التسجيل...');
+}catch(e){showToast('❌ خطأ: '+e.message)}
+}
+
+function stopLive(){
+if(mediaRecorder&&mediaRecorder.state!=='inactive')mediaRecorder.stop();
+if(liveStream)liveStream.getTracks().forEach(t=>t.stop());
+document.getElementById('liveVideo').srcObject=null;
+document.getElementById('liveIndicator').style.display='none';
+document.getElementById('liveStartBtn').style.display='';
+document.getElementById('liveStopBtn').style.display='none';
+}
+
+function takePhoto(){
+const video=document.getElementById('liveVideo');
+if(!video.srcObject){showToast('❌ شغل الكاميرا أولاً');return}
+const c=document.createElement('canvas');c.width=video.videoWidth;c.height=video.videoHeight;
+c.getContext('2d').drawImage(video,0,0);
+c.toBlob(blob=>{
+const url=URL.createObjectURL(blob);
+const a=document.createElement('a');a.href=url;a.download=`photo_${Date.now()}.png`;a.click();
+showToast('📸 تم التقاط الصورة');
+},'image/png');
+}
+
+// ═══ EXPORT ═══
+function togglePlatform(el){el.classList.toggle('sel');
+const p=el.dataset.platform;
+if(el.classList.contains('sel'))selectedPlatforms.push(p);
+else selectedPlatforms=selectedPlatforms.filter(x=>x!==p);
+// Update preview aspect ratio
+if(selectedPlatforms.length>0){
+const specs=PLATFORMS[selectedPlatforms[selectedPlatforms.length-1]];
+const pc=document.getElementById('previewContainer');
+if(specs.r==='16:9')pc.style.aspectRatio='16/9';
+else if(specs.r==='1:1')pc.style.aspectRatio='1/1';
+else pc.style.aspectRatio='9/16';
+}
+}
+
+function selectAllExports(){document.querySelectorAll('#exportGrid input[type=checkbox]').forEach(c=>c.checked=true)}
+function deselectAllExports(){document.querySelectorAll('#exportGrid input[type=checkbox]').forEach(c=>c.checked=false)}
+
+function exportAll(){
+const selected=[];
+document.querySelectorAll('#exportGrid input[type=checkbox]:checked').forEach(c=>selected.push(c.value));
+if(selected.length===0){showToast('⚠️ اختر صيغة واحدة على الأقل');return}
+const progress=document.getElementById('exportProgress');
+progress.classList.add('show');
+let done=0;
+selected.forEach((fmt,i)=>{
+setTimeout(()=>{
+done++;
+const pct=Math.round(done/selected.length*100);
+document.getElementById('epFill').style.width=pct+'%';
+document.getElementById('epText').textContent=`تصدير ${fmt}... (${done}/${selected.length}) - ${pct}%`;
+if(done===selected.length){
+setTimeout(()=>{
+if(canvas){canvas.toBlob(blob=>{
+const url=URL.createObjectURL(blob);
+const a=document.createElement('a');
+a.href=url;a.download=`quran_export_${fmt}_${Date.now()}.png`;a.click();
+},'image/png');}
+showToast(`✅ تم تصدير ${selected.length} ملف`);
+progress.classList.remove('show');
+},500);
+}
+},i*1000);
+});
+}
+
+function exportSelected(){
+const first=document.querySelector('#exportGrid input[type=checkbox]:checked');
+if(!first){showToast('⚠️ اختر صيغة');return}
+showToast('📤 جارٍ التصدير: '+first.value);
+if(canvas){canvas.toBlob(blob=>{
+const url=URL.createObjectURL(blob);
+const a=document.createElement('a');a.href=url;a.download=`quran_${first.value}_${Date.now()}.png`;a.click();
+showToast('✅ تم التصدير');
+},'image/png');}
+}
+
+// ═══ UI HELPERS ═══
+function switchSection(id,btn){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('act'));
+document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('act'));
+document.getElementById('sec-'+id).classList.add('act');
+if(btn)btn.classList.add('act');
+}
+
+function switchSbTab(id,btn){
+document.querySelectorAll('.sb-panel').forEach(p=>p.classList.remove('act'));
+document.querySelectorAll('.sb-tab').forEach(t=>t.classList.remove('act'));
+document.getElementById('sbp-'+id).classList.add('act');
+if(btn)btn.classList.add('act');
+}
+
+function navSurah(d){if(!curSurah)return;const n=curSurah.n+d;if(n>=1&&n<=114)loadSurah(n)}
+function chgFont(d){fontSize=Math.max(16,Math.min(48,fontSize+d));document.documentElement.style.setProperty('--qs',fontSize+'px');document.getElementById('fontLbl').textContent=fontSize;localStorage.setItem('fs',fontSize)}
+function toggleTheme(){const c=document.documentElement.getAttribute('data-t');applyTheme(c==='dark'?'light':'dark')}
+function applyTheme(t){if(t==='dark')document.documentElement.setAttribute('data-t','dark');else document.documentElement.removeAttribute('data-t');localStorage.setItem('thm',t)}
+function toggleLP(){document.getElementById('qSidebar').style.display=document.getElementById('qSidebar').style.display==='none'?'':'none'}
+function vmLoadSurah(){const n=document.getElementById('vmSurah').value;if(n){const s=SURAHS.find(x=>x.n==n);if(s){document.getElementById('vmToAyah').value=s.c;document.getElementById('previewRef').textContent='سورة '+s.a}}}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000)}
+
+})();
+</script>
+</body>
+</html>
